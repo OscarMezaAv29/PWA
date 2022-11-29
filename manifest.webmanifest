@@ -1,0 +1,16 @@
+{
+    "name": "Mi Aplicacion en AWP",
+    "short_name": "AppAWP",
+    "description": "Mi primera aplicación web progresiva",
+    "icons": [
+        {
+            "src": "icon/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/index.html",
+    "display": "fullscreen",
+    "theme_color": "#0000aa",
+    "background_color": "#0000aa"
+}

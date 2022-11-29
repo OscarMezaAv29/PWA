@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Mi Aplicación PWA</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <script src="app.js"></script>
+</head>
+<body>
+        <nav class="navbar navbar-expand-lg" style="width: 100%; padding: 20px; background-color: #17B6D2; align-items: center;">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="braille.html">Braille</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="lsm.html">LSM</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    <h1>Aprende</h1>
+
+    <div class="container">
+      <div class="cards">
+        <div class="card" style="width: 18rem;">
+          <img src="img/lsm/LSM.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center">Lengua de Señas Mexicana</h5>
+            <p class="card-text">La lengua de señas es la lengua natural de las personas sordas. La Lengua de Señas Mexicana (LSM), es la lengua que utilizan las personas sordas en México.</p>
+            <a href="lsm.html" class="btn btn-primary">Aprende</a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="img/braille/braille.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center">Alfabeto Braille</h5>
+            <p class="card-text">Es el principal medio de comunicación de una persona con discapacidad visual profunda.</p>
+            <a href="braille.html" class="btn btn-primary">Aprende</a>
+          </div>
+        </div>
+      </div>
+      <div class="row text-center">
+
+        <div class="col"><br><br>
+          <a id="instalar" class="btn btn-danger" href="#">Instalar aplicación</a></div>
+          <br><br>
+          <a id="instalarNotificaciones" class="btn btn-danger" href="#">Recibir Notificaciones</a></div>
+        </div>
+    </div>
+    
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+      let eventoPrompt;
+      window.addEventListener('beforeinstallprompt', function(e) {
+        e.preventDefault();
+        eventoPrompt = e;
+      })
+      btnInstalar = document.getElementById("instalar");
+      btnInstalar.addEventListener('click', (e)=>{
+        btnInstalar.style.display= 'none';
+        eventoPrompt.prompt();
+        eventoPrompt.userChoice.then((choiceResult) => {
+          if(choiceResult.outcome==='accepted'){
+            console.log('El usuario instaló la aplicación');
+          } else {
+            console.log('El usuario rechazó la instalación');
+          }
+          eventoPrompt=null;
+        });
+      });
+
+      // NOTIFICACIONES //
+      let botonNotificaciones = document.getElementById("instalarNotificaciones");
+      botonNotificaciones.addEventListener('click', function(e){
+        Notification.requestPermission().then(function(result){
+          if(result==='granted') {
+            randomNotification();
+          }
+        })
+      });
+
+      function randomNotification(){
+        let nTitle = "Titulo Notificación";
+        let nBody = "Te invitamos a conocer nuestro contenido de primera mano";
+        let nImage = "./icon/offline.jpg";
+        let options = {
+          body: nBody,
+          icon: nImage
+        }
+        let notif = new Notification(nTitle, options);
+        setTimeout(randomNotification,10000);
+
+        
+      }
+    </script>
+</body>
+</html>
