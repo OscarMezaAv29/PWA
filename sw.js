@@ -7,6 +7,7 @@ workbox.precaching.precacheAndRoute([
     'braille.html',
     'lsm.html',
     'img',
+    'icon'
 ]);
 
 workbox.routing.registerRoute(
