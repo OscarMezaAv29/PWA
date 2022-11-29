@@ -9,7 +9,7 @@
             "type": "image/png"
         }
     ],
-    "start_url": "https://pwa-6wpaugago-oscarmezaav29.vercel.app/",
+    "start_url": "/index.html",
     "display": "fullscreen",
     "theme_color": "#0000aa",
     "background_color": "#0000aa"
