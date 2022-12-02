@@ -7,7 +7,8 @@ workbox.precaching.precacheAndRoute([
     'braille.html',
     'lsm.html',
     'offline.html',
-    'icon/offline.jpg'
+    'icon/offline.jpg',
+    'img',
 
 ]);
 
