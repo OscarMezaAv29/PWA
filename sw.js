@@ -31,7 +31,7 @@ workbox.routing.setCatchHandler(async context => {
         return workbox.precaching.matchPrecache('offline.html')
     }
     return Response.error();
-})
+});
 
 // var cacheName = 'appV1';
 // var contenidoCache = [
