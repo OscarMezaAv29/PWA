@@ -20,18 +20,18 @@ workbox.routing.registerRoute(
 );
 
 //si hay una respuesta que genere error
-// workbox.routing.setCatchHandler(async context => {
-//     console.log("entro");
-//     console.log(context);
-//     console.log(context.request);
+workbox.routing.setCatchHandler(async context => {
+    console.log("entro");
+    console.log(context);
+    console.log(context.request);
     
-//     if (context.request.destination === 'image') {
-//         return workbox.precaching.matchPrecache('icon/offline.jpg');
-//     } else if (context.request.destination === 'document') {
-//         return workbox.precaching.matchPrecache('offline.html')
-//     }
-//     return Response.error();
-// })
+    if (context.request.destination === 'image') {
+        return workbox.precaching.matchPrecache('icon/offline.jpg');
+    } else if (context.request.destination === 'document') {
+        return workbox.precaching.matchPrecache('offline.html')
+    }
+    return Response.error();
+})
 
 // var cacheName = 'appV1';
 // var contenidoCache = [
