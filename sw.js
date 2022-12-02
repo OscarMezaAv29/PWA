@@ -8,8 +8,6 @@ workbox.precaching.precacheAndRoute([
     'lsm.html',
     'offline.html',
     'icon/offline.jpg',
-    'img',
-    'css'
 
 ]);
 
