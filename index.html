@@ -10,6 +10,15 @@
   <title>Mi Aplicación PWA</title>
   <link rel="manifest" href="manifest.webmanifest">
   <script src="app.js"></script>
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+  <script>
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+      OneSignal.init({
+        appId: "0d7b23a4-c4a6-43f5-a4e8-4554d09cd930",
+      });
+    });
+  </script>
 </head>
 
 <body>
